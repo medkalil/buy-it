@@ -1,0 +1,31 @@
+<div class="card border-primary mb-3">
+  <div class="card-header bg-primary text-white">Product Detail</div>
+  <div class="card-body">
+    <div *ngIf="product; else noProduct">
+      <div class="card" style="width: 25em">
+        <img src="{{ product.imageUrls[0] }}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">
+            <strong>Product Name :</strong> {{ product.name }}
+          </p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>price : </strong>{{ product.price }} $
+          </li>
+          <li class="list-group-item">
+            <strong>flavors : </strong>{{ product.flavors[0].name }} &
+            {{ product.flavors[1].name }} & {{ product.flavors[2].name }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <ng-template #noProduct>
+      <p>Contact not found</p>
+    </ng-template>
+  </div>
+</div>
+<button class="btn btn-primary" (click)="onProductList()">
+  Go to Products List
+</button>

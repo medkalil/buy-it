@@ -1,0 +1,40 @@
+<mat-toolbar>
+  <button
+    *ngIf="!authenticationService.isAdmin"
+    mat-icon-button
+    aria-label="Home button"
+    routerLink="/"
+  >
+    <mat-icon>home</mat-icon>
+  </button>
+
+  <span class="spacer"></span>
+  <!--   <h1>{{ userInfo }}</h1> -->
+  <span class="spacer"></span>
+  <!--No User-->
+  <!--   <button
+    *ngIf="!(authenticationService.userData | async)"
+    class="d-none"
+  ></button> -->
+  <!--User Exist-->
+  <button
+    *ngIf="
+      (authenticationService.userData | async) && !authenticationService.isAdmin
+    "
+    mat-icon-button
+    aria-label="Checkout button"
+    class="snipcart-checkout"
+  >
+    <span class="snipcart-total-price"></span>
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
+
+  <button
+    class="marginLeft"
+    mat-icon-button
+    aria-label="Account"
+    (click)="onLogin()"
+  >
+    <span class="material-icons"> person </span>
+  </button>
+</mat-toolbar>

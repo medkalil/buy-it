@@ -1,0 +1,96 @@
+<div class="card border-primary mb-3">
+  <div class="card-header bg-primary text-white">Add Product</div>
+  <div class="card-body">
+    <h3>Add Product</h3>
+    <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          name="name"
+          required
+          ngModel
+        />
+      </div>
+      <div class="form-row">
+        <div class="col">
+          <label for="price">Price</label>
+          <input
+            type="number"
+            id="price"
+            class="form-control"
+            name="price"
+            required
+            ngModel
+          />
+        </div>
+      </div>
+      <div class="form-group" name="flavors">
+        <label for="flavors">Flavors</label>
+        <div class="form-row">
+          <h1>*</h1>
+          <input
+            placeholder="name"
+            type="text"
+            id="name1"
+            class="form-control col"
+            name="name1"
+            required
+            ngModel
+          />
+          <input
+            placeholder="color"
+            type="text"
+            id="color1"
+            class="form-control col"
+            name="color1"
+            required
+            ngModel
+          />
+        </div>
+        <div class="form-row">
+          <input
+            placeholder="name"
+            type="text"
+            id="name2"
+            class="form-control col"
+            name="name2"
+            ngModel
+          />
+          <input
+            placeholder="color"
+            type="text"
+            id="color2"
+            class="form-control col"
+            name="color2"
+            ngModel
+          />
+        </div>
+        <div class="form-row">
+          <input
+            placeholder="name"
+            type="text"
+            id="name3"
+            class="form-control col"
+            name="name3"
+            ngModel
+          />
+          <input
+            placeholder="color"
+            type="text"
+            id="color3"
+            class="form-control col"
+            name="color3"
+            ngModel
+          />
+        </div>
+      </div>
+      <button class="btn btn-primary" [disabled]="form.invalid">Save</button>
+    </form>
+  </div>
+</div>
+<button class="btn btn-primary" (click)="onProductList()">
+  Go To Products List
+</button>

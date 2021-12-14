@@ -1,0 +1,40 @@
+<div class="card border-primary mb-10">
+  <div class="card-header bg-primary text-white"><h1>Admin Dashboard</h1></div>
+  <div class="card-body">
+    <div *ngIf="products.length > 0; else noProducts">
+      <h1><b>Product List</b></h1>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th scoope="col">Name</th>
+            <th scoope="col"></th>
+            <th scoope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of products">
+            <td scoope="col">
+              <img src="{{ c.imageUrls[0] }}" alt="{{ c.id }}" />
+            </td>
+            <td>
+              {{ c.name }}
+            </td>
+            <td>
+              <a class="btn btn-success" [routerLink]="['/adminProduct', c.id]"
+                >Detail</a
+              >
+            </td>
+            <td>
+              <a class="btn btn-danger" (click)="onDelete(c.id)">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ng-template #noProducts>
+      <p>No Products</p>
+    </ng-template>
+  </div>
+  <button class="btn btn-primary" (click)="onAdd()">Add Product</button>
+</div>
